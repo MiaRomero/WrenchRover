@@ -1,0 +1,56 @@
+
+<form>
+
+
+<button ng-click="searchClicked()">Press</button>  <p ng-show="shows">This is some text that is shown.</p>
+
+  <p>Oil Change</p>
+
+  <button ng-click="oilDisplay()">Select</button>
+
+<!-- <div ng-show="!showThis"> -->
+  <div ng-show="!x">
+
+  <label>
+    <input type="radio" data-ng-model="oil.name" value="Standard Oil">
+    Standard Oil
+  </label>
+  <label>
+
+    <input type="radio" data-ng-model="oil.name"
+  value="Synthetic Blend"
+    >
+    Synthetic Blend
+  </label><br/>
+  <label>
+    <input type="radio" data-ng-model="oil.name" value="Full Synthetic">
+    Full Synthetic
+  </label><br/>
+  <tt>oil = {{oil.name}}</tt><br/>
+
+</div>
+
+
+
+   <label>Inspection
+     <input type="checkbox" data-ng-model="oil.value1" data-ng-true-value = "'Inspection'" data-ng-false-value = "">
+   </label>{{oil.value1}}<br/>
+   <label>Pad Replacement
+  <input type="checkbox" data-ng-model="oil.value2"
+            data-ng-true-value="'Pad Replacement'" data-ng-false-value="">
+    </label>{{oil.value2}}<br/>
+
+
+    <label>Rotor Replacement
+   <input type="checkbox" problem="checkboxModel" data-ng-model="oil.value3"
+             data-ng-true-value="'Rotor Replacement'" data-ng-false-value="">
+     </label> {{oil.value3}}<br/>
+
+   <tt>oil 1 = {{oil.value1}}</tt><br/>
+   <tt>oil 2 = {{oil.value2}}</tt><br/>
+      <tt>oil 3 = {{oil.value3}}</tt><br/>
+  </form>
+ <!-- experiment within the experiment -->
+
+<!-- experiment -->
+<!-- </section> -->

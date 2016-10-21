@@ -1,0 +1,53 @@
+{
+  "name": "WrenchRover",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CWShelly/WrenchRover.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CWShelly/WrenchRover/issues"
+  },
+  "homepage": "https://github.com/CWShelly/WrenchRover#readme",
+  "dependencies": {
+    "angular-resource": "^1.5.8",
+    "angular-simple-logger": "^0.1.7",
+    "express": "^4.14.0",
+    "lodash": "^4.14.0",
+    "mysql": "^2.11.1"
+  },
+  "devDependencies": {
+    "angular": "^1.5.7",
+    "angular-animate": "^1.5.8",
+    "angular-google-maps": "^2.3.3",
+    "angular-mocks": "^1.5.7",
+    "angular-resource": "^1.5.8",
+    "angular-route": "^1.5.7",
+    "angular-sanitize": "^1.5.8",
+    "angular-simple-logger": "^0.1.7",
+    "angular-ui-bootstrap": "^2.0.0",
+    "angular-ui-router": "^0.3.1",
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-mocha": "^2.2.0",
+    "gulp-protractor": "^2.4.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.1.1",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^1.0.2",
+    "lodash": "^4.14.0",
+    "superagent": "^2.1.0",
+    "webpack-stream": "^3.2.0"
+  }
+}

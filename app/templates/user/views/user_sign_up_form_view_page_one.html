@@ -1,0 +1,22 @@
+
+
+   <section data-ng-controller = "userSignUpController as userctrl">
+      <ul id="error">
+        <li data-ng-repeat="error in userctrl.errors">{{error.message}}<button class="btn btn-default" data-ng-click="userctrl.errors.splice(userctrl.errors.indexOf(error), 1)">Close This</button></li>
+      </ul>
+
+
+      <user-sign-up-form-page-one
+        data-button-text="Sign up!"
+        data-xuser="userctrl.newUser"
+            data-action="create"
+      >
+    </user-sign-up-form-page-one>
+
+    <user-sign-in-form>
+      
+    </user-sign-in-form>
+
+
+
+    </section>

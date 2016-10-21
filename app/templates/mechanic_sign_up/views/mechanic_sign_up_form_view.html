@@ -1,0 +1,22 @@
+
+
+  <section  data-ng-controller = "mechanicSignUpController as scctrl">
+
+  <ul id="error">
+    <li data-ng-repeat="error in scctrl.errors">{{error.message}}<button data-ng-click="scctrl.errors.splice(sccctrl.errors.indexOf(error), 1)">Close This</button></li>
+  </ul>
+
+
+  <mechanic-sign-up-form
+    data-button-text="Sign up!"
+    data-action="create"
+    data-servicecenter="scctrl.newServiceCenter">
+</mechanic-sign-up-form>
+<!--
+  <ol id = "serviceCenterList">
+      <service-list-item data-ng-repeat = "servicecenters in scctrl.servicecenters" data-servicecenter="servicecenters">
+
+    </service-list-item>
+  </ol> -->
+
+</section>

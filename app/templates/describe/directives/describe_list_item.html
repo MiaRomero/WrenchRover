@@ -1,0 +1,30 @@
+<li data-ng-mouseover="count = 'xxxxxxxxx'"  data-ng-mouseleave = "count='x'" ng-init="count='x'" >
+
+<ng-transclude></ng-transclude>
+
+
+ <!-- <a ui-sref="common_repairs.{{description.label}}">{{description.name}}</a> -->
+
+
+ <!-- <a  ui-sref="common_repairs_view.{{description.label}}"><img src="../../../images/common_icons/{{description.label}}.png" alt=""
+
+  ng-class="{'btn btn-primary': hover, 'btn btn-default': !hover}"
+   ng-mouseover="hover = true"
+   ng-mouseleave = "hover = false ">
+ </a> -->
+<!--
+ <a  ui-sref="common_repairs_view.{{description.label}}"><img src="../../../images/common_icons/{{description.label}}.png" alt=""
+
+  ng-class="{'btn btn-primary': hover, 'btn btn-default': !hover}"
+   ng-click="hover = !hover">
+ </a> -->
+
+
+
+ <a class="text-center tablink" ui-sref="common_repairs_view.{{description.label}}">
+
+<img src="../../../images/common_icons/{{description.label}}.png" alt=""
+ class="propNavItem"><br>{{description.name}}
+ </a>
+
+</li>

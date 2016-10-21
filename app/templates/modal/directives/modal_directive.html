@@ -1,0 +1,37 @@
+
+<div class="panel panel-primary">
+
+  <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">X</button>
+  <div class="panel-heading">
+
+    <h3 class="panel-title">Create an account</h3>
+  </div>
+
+<div class="panel panel-success">
+
+  <div class="panel-body">
+
+    <ul id="error">
+      <li data-ng-repeat="error in userctrl.errors">{{error.message}}<button class="btn btn-default" data-ng-click="userctrl.errors.splice(userctrl.errors.indexOf(error), 1)">Close This</button></li>
+    </ul>
+
+<div ng-controller="userSignUpController as userctrl">
+<user-sign-up-form-page-one
+
+data-button-text="Join today!"
+data-action="create"
+data-xuser="userctrl.newUser"
+>
+</user-sign-up-form-page-one>
+
+<!-- <user-sign-in-form>
+
+</user-sign-in-form> -->
+
+<button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">Close</button>
+</div>
+
+  </div>
+</div>
+
+</div>

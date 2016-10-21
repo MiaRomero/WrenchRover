@@ -1,0 +1,80 @@
+
+main{
+  height: 100%;
+}
+.angular-google-map-container {
+   position:absolute;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   left: 0;
+   height: 500px;
+}
+#map_canvas {
+     width: 100%;
+     margin: 0px;
+     position: relative;
+     height: 500px;
+ }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.vehicleselectbox {
+  padding: 10px;
+}
+
+#logo {
+  width: 30%;
+}
+
+#signupnavbutton {
+  float: right;
+  padding-right: 30px;
+  font-size: 12pt;
+}
+
+#homepageimagerow {
+  background-color: #969695;
+}
+
+#vehicleselectimage {
+  float: right;
+  padding-right: 4em;
+  padding-top: 1em;
+}
+
+.temporaryDiv{
+  float: right;
+  height: 500px;
+  width: 150px;
+  border: 1px solid red;
+}
+
+.tempInsideDiv{
+  border: 2px solid blue;
+}
+
+
+/*.subcategory{
+  border: 1px solid grey;
+}*/
+
+
+.modal {
+    display: block;
+}
+.modal-body:before,
+.modal-body:after {
+    display: table;
+    content: " ";
+}
+.modal-header:before,
+.modal-header:after {
+    display: table;
+    content: " ";
+}

@@ -1,0 +1,113 @@
+<!-- <section> -->
+
+  <div class="container">
+    <div class="row">
+
+  <div class="col-md-9 col-sm-12 ">
+    <div class="row">
+      <div class="col-md-2 col-sm-12" style="padding:0px;">
+        <nav class="probSidenav">
+<!-- the three png icons  -->
+          <ul id = "descriptionList" class="list-unstyled">
+            <describe-item data-ng-repeat = "descriptions in describe.descriptions" data-description="descriptions">
+            </describe-item>
+          </ul>
+
+        </nav>
+      </div>
+    </div>
+
+</div>
+
+<div class="row"><br>
+  <div id="common">
+    <div class="col-md-10 col-sm-12 " style="padding:0px;">
+
+    <div class = "probContainer" style="overflow:auto;" >
+      <div class="row" ui-view>
+                        <!-- PUT COMMON SERVICES DATA HERE -->
+                        </div>
+    </div>
+  </div>
+
+  </div>
+
+
+<!-- </div> -->
+
+
+
+  <div class="col-md-3 col-sm-12">
+    <div class="row text-center carContain">
+    <div class="col-md-12 col-sm-12 carHeader">
+ Your Vehicle:
+</div>
+  <div class="col-md-12 col-sm-12 carData">
+
+<strong>{{describe.storedVehicle.year}} {{describe.storedVehicle.make.name}}
+{{describe.storedVehicle.model.name}}</strong>
+{{describe.storedVehicle.trim.name}}
+{{describe.storedVehicle.engine}}
+mileage: {{describe.storedVehicle.mileage}}
+
+
+</div>
+
+
+<div class="col-md-12 col-sm-12 carHeader">
+            Your Services
+          </div>
+  <ul>
+    <chosen-oil data-ng-repeat="chosenoil in describe.service.oilChosen" data-chosenoil="chosenoil">
+
+    </chosen-oil>
+
+  </ul>
+  <!-- displays chosen list of services -->
+  <ul>
+  <chosen-service data-ng-repeat="chosenservice in describe.service.chosen" data-chosenservice="chosenservice">
+
+  </chosen-service>
+</ul>
+
+<ul>
+  <chosen-dash data-ng-repeat="chosendash in describe.service.dashChosen" data-chosendash = "chosendash"></chosen-dash>
+
+</ul>
+
+<p ng-class="{'text-primary': describe.service.textInput || describe.service.textInput !== '', 'hidden': !describe.service.textInput || describe.service.textInput === ''}">You wrote:</p>
+
+
+<!-- displays user described issue in the shopping cart -->
+<div ng-class="{'temporaryInsideDiv': describe.service.textInput, 'hidden': !describe.service.textInput}">
+ {{describe.service.textInput}}
+
+ <a ui-sref="common_repairs_view.describe_issue" ng-click = "describe.changeText()" ng-class="{'text-primary': describe.service.textInput || describe.service.textInput !== '', 'hidden': !describe.service.textInput || describe.service.textInput === ''}">Edit</a>
+
+  <button ng-click="describe.editThis()"  ng-disabled="describe.service.textInput === '' || !describe.service.textInput" ng-class="{'btn btn-primary': describe.service.textInput || describe.service.textInput !== '', 'hidden': !describe.service.textInput || describe.service.textInput === ''}">X</button>
+
+ </div>
+
+          <!-- <div class="row text-center">
+   <div class="modal-demo col-md-12 col-sm-12" ng-controller="buttonController as $ctrl"><br>
+ <button ng-click= "$ctrl.open()" ng-class="{'btn btn-primary': describe.service.count > 0 || describe.service.nextCount > 0 || describe.service.dashCount > 0 || describe.service.textInput, 'btn btn-default': !describe.service.textInput && describe.service.count !== 5 && describe.service.nextCount !== 7 && describe.service.dashCount !== 9}" >Next Step</button>
+
+  </div>
+</div> -->
+
+</div>
+</div>
+<br>
+<div class="row text-center">
+<div class="modal-demo col-md-12 col-sm-12" ng-controller="buttonController as $ctrl"><br>
+<button ng-click= "$ctrl.open()" ng-class="{'btn btn-primary': describe.service.count > 0 || describe.service.nextCount > 0 || describe.service.dashCount > 0 || describe.service.textInput, 'btn btn-default': !describe.service.textInput && describe.service.count !== 5 && describe.service.nextCount !== 7 && describe.service.dashCount !== 9}" >Next Step</button>
+
+</div>
+</div>
+
+</div>
+
+    <!-- <div class = "probContainer" style="overflow:auto;" ui-view></div>
+    </div> -->
+  </div>
+<!-- </section> -->

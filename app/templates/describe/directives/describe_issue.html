@@ -1,0 +1,7 @@
+
+<form data-ng-submit="describeIt(description)">
+
+    <textarea name="describe" id="" cols="30" rows="10" ng-model="value" placeholder={{describe.placeholder}} ng-init="value=describe.previouslyEntered"></textarea>
+
+<button type="submit" ng-click="textAreaFunc(value)">{{describe.button}}</button>
+</form>

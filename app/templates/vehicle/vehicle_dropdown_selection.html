@@ -1,0 +1,223 @@
+<div class="container">
+  <div class="row probBanner">
+  <!-- Main page content -->
+    <div class="col-md-12 col-sm-12">
+      <div class="col-md-6 col-sm-12">
+        <h1 class="light">Find a Mechanic.</h1>
+        <span class="mobileHide">
+        <h1 class="light">Book an Appointment.</h1>
+        <h1 class="light">And Relax.</h1><br>
+        <h3 class="light">It just takes a few easy steps to get you back on the road.</h3>
+        <h3 class="light">Certified shops pass a rigorous inspection by our master mechanics for quality work and competitive pricing.</h3>
+        <br><br></span>
+      </div>
+
+      <!-- Begin Vehicle Search API -->
+      <div class="col-md-6 col-sm-12"
+           style="background:URL('../images/transparent.png');border:solid 1px black;height:auto;margin-top:25px;">
+      <h3>What type of vehicle to you have?</h3>
+      <div class="container" style="width:auto;height:auto;">
+
+        <section id="vehicleSelectMenu" data-ng-controller="VehicleInfoController as VehicleInfoController">
+          <form>
+            <div class="form-group row">
+              <div class="col-md-6 col-sm-12">
+                <select class="form-control"
+                        id="a"
+                        data-ng-model="VehicleInfoController.vehicleObject.year"
+                        ng-change="VehicleInfoController.newYearSelected(); VehicleInfoController.getVehicleMakes(); VehicleInfoController.showMe('b')"
+                        ng-options="year for year in VehicleInfoController.vehicleListOptions.yearsList">
+                  <option value="">Year</option>
+                </select>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <select class="form-control"
+                        id="b"
+                        data-ng-model="VehicleInfoController.vehicleObject.make"
+                        ng-change="VehicleInfoController.newMakeSelected(); VehicleInfoController.getVehicleModels(); VehicleInfoController.showMe('c')"
+                        ng-options="make.name for make in VehicleInfoController.vehicleListOptions.makeList"
+                        disabled>
+                  <option value="">Make</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-6 col-sm-12">
+                <select class="form-control"
+                        id="c"
+                        data-ng-model="VehicleInfoController.vehicleObject.model"
+                        ng-change="VehicleInfoController.newModelSelected(); VehicleInfoController.getVehicleTrims(); VehicleInfoController.showMe('d')"
+                        ng-options="model.name for model in VehicleInfoController.vehicleListOptions.modelList"
+                        disabled>
+                  <option value="">Model</option>
+                </select>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <select class="form-control"
+                        id="d"
+                        data-ng-model="VehicleInfoController.vehicleObject.trim"
+                        ng-change="VehicleInfoController.newTrimSelected(); VehicleInfoController.getVehicleEngines(); VehicleInfoController.showMe('e')"
+                        ng-options="trim.name for trim in VehicleInfoController.vehicleListOptions.trimList"
+                        disabled>
+                  <option value="">Trim</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-6 col-sm-12">
+                <select class="form-control"
+                        id="e"
+                        data-ng-model="VehicleInfoController.vehicleObject.engine"
+                        ng-options="engine for engine in VehicleInfoController.vehicleListOptions.engineList"
+                        disabled>
+                  <option value="">Engine</option>
+                </select>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <input type="number"
+                       maxlength="6"
+                       min="1"
+                       max="999999"
+                       class="form-control"
+                       id="Vmileage1"
+                       placeholder="Mileage"
+                       data-ng-model="VehicleInfoController.vehicleObject.mileage">
+              </div>
+            </div>
+            <div class="form-group row text-center">
+              <div class="col-md-12 col-sm-12">
+                <hr class="vehicleHR">
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-6 col-sm-12">
+                <input type="text"
+                       maxlength="17"
+                       minlength="17"
+                       class="form-control"
+                       id="Vvin"
+                       placeholder="Vehicle VIN"
+                       data-ng-model="VehicleInfoController.vehicleObject.vin">
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <input type="number"
+                       maxlength="6"
+                       min="1"
+                       max="999999"
+                       class="form-control"
+                       id="Vmileage2"
+                       placeholder="Mileage"
+                       data-ng-model="VehicleInfoController.vehicleObject.mileage">
+              </div>
+            </div>
+            <!-- need a lookup button -->
+            <div class="form-group row text-center">
+              <div class="col-md-12 col-sm-12">
+                <button class="btn btn-primary"
+                        type="submit"
+                        ng-click="VehicleInfoController.logVehicle(); VehicleInfoController.getVin()">
+                        Lookup Vehicle
+                </button>
+              </div>
+            </div>
+            <!-- lookup -->
+            <div class="form-group row text-center">
+              <div class="col-md-12 col-sm-12">
+                <button type="submit"
+                        class="btn btn-primary"
+                        style="width:100px;"
+                        ui-sref="common_repairs_view"
+                        ng-click="VehicleInfoController.saveToLocalStorage()">
+                        START
+                </button>
+              </div>
+            </div>
+          </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Homepage Marketing -->
+  <div class="row text-center" style="margin-top:40px;">
+    <div class="col-md-6 col-sm-12 hero-feature">
+      <div class="thumbnail">
+        <img src="http://placehold.it/120x80" alt="">
+        <div class="caption">
+          <h3>Feature Label</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <p>
+            <a href="#"
+              class="btn btn-primary">
+              Buy Now!
+            </a>
+            <a href="#"
+               class="btn btn-default">
+               More Info
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12 hero-feature">
+      <div class="thumbnail">
+        <img src="http://placehold.it/120x80" alt="">
+        <div class="caption">
+          <h3>Feature Label</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <p>
+            <a href="#"
+               class="btn btn-primary">
+               Buy Now!
+            </a>
+            <a href="#"
+               class="btn btn-default">
+               More Info
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-md-6 col-sm-12 hero-feature">
+      <div class="thumbnail">
+        <img src="http://placehold.it/120x80" alt="">
+        <div class="caption">
+          <h3>Feature Label</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <p>
+            <a href="#"
+               class="btn btn-primary">
+               Buy Now!
+            </a>
+            <a href="#"
+               class="btn btn-default">
+               More Info
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12 hero-feature">
+      <div class="thumbnail">
+        <img src="http://placehold.it/120x80" alt="">
+        <div class="caption">
+          <h3>Feature Label</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <p>
+            <a href="#"
+               class="btn btn-primary">
+               Buy Now!
+            </a>
+            <a href="#"
+               class="btn btn-default">
+               More Info
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

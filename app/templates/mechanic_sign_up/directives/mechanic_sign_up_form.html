@@ -1,0 +1,28 @@
+<form data-ng-submit = "save(servicecenter)">
+
+<p><label for="business name"> Business Name</label>
+  <input type="text" placeholder = "Business Name" name = "businessName" data-ng-model="servicecenter.service_name"></p>
+
+<p><label for="business address">Business Address</label>
+  <input type="text" placeholder = "Business Address" name = "businessAddress" data-ng-model="servicecenter.service_address"></p>
+
+
+  <p><label for="city">City</label>
+  <input type="text" placeholder = "City" name = "serviceCity" data-ng-model="servicecenter.service_city"></p>
+
+  <p><label for="state">State</label>
+  <input type="text" placeholder = "State" name = "businessState" data-ng-model="servicecenter.service_state"></p>
+  <p><label for="zip code">Zip Code</label>
+<input type="text" placeholder = "Zip Code" name = "businessZip" data-ng-model="servicecenter.service_zip"></p>
+
+  <p><label for="email">Email</label>
+    <input type="text" placeholder = "Email" name = "businessEmail" data-ng-model="servicecenter.service_email"></p>
+
+  <p>  <label for="phone number"> Phone Number</label>
+      <input type="text" placeholder = "Phone Number" name = "businessPhone" data-ng-model="servicecenter.service_phone"></p>
+  <!-- ////// -->
+
+     <button type = "submit" id = "newServiceCenter">{{buttonText}}</button>
+
+     <ng-transclude></ng-transclude>
+   </form>

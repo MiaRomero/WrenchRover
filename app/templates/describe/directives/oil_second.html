@@ -1,0 +1,22 @@
+
+
+<li data-ng-mouseover="count = 'x'"  data-ng-mouseleave = "count='x'" ng-init="count='x'" >
+
+<!--
+<label>
+  <input type="radio" data-ng-model="value" name = "name" value = "{{oilsecond.name}}"  data-ng-true-value="xxx" data-ng-false-value = ""
+
+  ng-change="checkedSelected(value, oilsecond.name)"
+>
+  {{oilsecond.name}}
+</label> -->
+
+<!-- //// -->
+<input type="checkbox" name="describValue" data-ng-model="value" data-ng-true-value="'{{oilsecond.name}}'" data-ng-false-value=""   ng-change="oilSelected(value, oilsecond.name)" ng-disabled="describe.service.count == 5 && !value" >
+
+{{oilsecond.name}}
+
+
+
+
+</li>

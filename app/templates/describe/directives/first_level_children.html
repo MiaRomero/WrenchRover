@@ -1,0 +1,13 @@
+<section data-ng-mouseover="count = 'x'"  data-ng-mouseleave = "count='x'" ng-init="count='x'" >
+
+<ng-transclude></ng-transclude>
+<ol start = "2">
+ <second-level-children ng-repeat='secondchild in firstchild' data-secondchild='secondchild'>
+
+<!-- <button ng-click="storeSelection()">Add</button> -->
+
+</second-level-children>
+
+</ol>
+
+</section>
