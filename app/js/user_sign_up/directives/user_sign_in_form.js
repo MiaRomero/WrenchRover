@@ -8,18 +8,20 @@ module.exports = function(app) {
       transclude: true,
       templateUrl: '/templates/user/directives/user_sign_in_form.html',
       scope: {
-        xuser: '=',
+        login: '=',
         buttonText: '@',
         buttonLabel: '@',
-        action: '@'
+        action: '@',
+        theUser: '='
       },
       link: function(scope, element, attrs, controller) {
         var actions = {
-          create: controller.createUser
+        //   create: controller.createUser
+          create: controller.logIn
         };
 
         scope.save = actions[scope.action];
-        console.log(scope.save);
+        // console.log(scope.save);
 
       }
     };

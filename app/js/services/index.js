@@ -5,4 +5,5 @@ module.exports = exports = function(app) {
   require('./vic_clear_selections')(app);
   require('./user_dashboard')(app);
   require('./comm_service')(app);
+  require('./sc_comm_service.js')(app);
 };

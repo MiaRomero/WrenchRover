@@ -1,42 +1,29 @@
-<div id="map_canvas">
+<section id = "map_canvas">
+<ng-map zoom="11" center="current-location">
 
-    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
+  <marker id='{{shop.id}}' position="{{shop.position}}"
+ng-repeat="shop in vm.shops"
+on-click="vm.showDetail(shop)">
+</marker>
+<info-window id="foo-iw">
+<div ng-non-bindable="">
+id: {{vm.shop.id}}<br/>
+name: {{vm.shop.name}}<br/>
+Position 1: {{vm.shop.position}}<br/>
+Position 2: {{anchor.getPosition()}}<br/>
+Position 3: {{vm.map.markers[vm.shop.id].getPosition()}}<br/>
 
-<!-- search box will eventually go here -->
-      <!-- <ui-gmap-search-box options="searchbox.options" template="searchbox.template"
-                        events="searchbox.events" position="searchbox.position"></ui-gmap-search-box> -->
-
-        <ui-gmap-markers models="randomMarkers" coords="'self'" icon="'icon'" click="onClick" mouseover="onMouseover" >
-
-            <ui-gmap-windows show="show">
-
-                <div data-ng-non-bindable>{{index}}. {{place}}</div>
-
-
-            </ui-gmap-windows>
-        </ui-gmap-markers>
-    </ui-gmap-google-map>
 </div>
+</info-window>
+<marker position = "current-location" animation="Animation.BOUNCE" centered="true">
+</marker>
 
+<marker ng-repeat="p in UserDashCtrl.positions"
+    position="{{p.pos}}"
+    data="{{data[$index]}}"
+    on-click="UserDashCtrl.showData()";
+    title="pos: {{p.pos}}"></marker>
+</ng-map>
 
-  <section data-ng-controller = "serviceCenterController as scctrl">
-
-  <ul id="error">
-    <li data-ng-repeat="error in scctrl.errors">{{error.message}}<button data-ng-click="scctrl.errors.splice(sccctrl.errors.indexOf(error), 1)">J</button></li>
-  </ul>
-
-
-
-
-  <ol id = "serviceCenterList" >
-      <service-list-item data-ng-repeat = "servicecenters in scctrl.servicecenters" data-servicecenter="servicecenters">
-
-    </service-list-item>
-
-  </ol>
-
-
-
-
-
+</section>
 </section>

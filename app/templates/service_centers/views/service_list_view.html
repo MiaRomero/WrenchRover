@@ -6,7 +6,7 @@
     <li data-ng-repeat="error in scctrl.errors">{{error.message}}<button data-ng-click="scctrl.errors.splice(sccctrl.errors.indexOf(error), 1)">Close This</button></li>
   </ul>
 
-<!-- 
+<!--
  <service-center-sign-up-form
     data-button-text="Sign up!"
     data-action="create"
@@ -15,7 +15,7 @@
 
   <ol id = "serviceCenterList">
       <service-list-item data-ng-repeat = "servicecenters in scctrl.servicecenters" data-servicecenter="servicecenters">
-
+<ng-transclude></ng-transclude>
     </service-list-item>
   </ol>
 

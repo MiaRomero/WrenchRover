@@ -1,0 +1,141 @@
+<!-- Begin Vehicle Search API -->
+
+
+    <section id="vehicleSelectMenu" data-ng-controller="VehicleInfoController as VehicleInfoController">
+      <form>
+      <!-- <form data-ng-submit = "save(x)"> -->
+
+        <div class="form-group row">
+          <div class="col-md-6 col-sm-12">
+            <select class="form-control"
+                    id="a"
+                    data-ng-model="VehicleInfoController.vehicleObject.year"
+                    ng-change="VehicleInfoController.newYearSelected();
+                               VehicleInfoController.getVehicleMakes();
+                               VehicleInfoController.showMe('b');
+                               VehicleInfoController.disableMe('Vvin')"
+                    ng-options="year for year in VehicleInfoController.vehicleListOptions.yearsList">
+              <option value="">Year</option>
+            </select>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <select class="form-control"
+                    id="b"
+                    data-ng-model="VehicleInfoController.vehicleObject.make"
+                    ng-change="VehicleInfoController.newMakeSelected();
+                               VehicleInfoController.getVehicleModels();
+                               VehicleInfoController.showMe('c')"
+                    ng-options="make.name for make in VehicleInfoController.vehicleListOptions.makeList"
+                    disabled>
+              <option value="">Make</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6 col-sm-12">
+            <select class="form-control"
+                    id="c"
+                    data-ng-model="VehicleInfoController.vehicleObject.model"
+                    ng-change="VehicleInfoController.newModelSelected();
+                               VehicleInfoController.getVehicleTrims();
+                               VehicleInfoController.showMe('d')"
+                    ng-options="model.name for model in VehicleInfoController.vehicleListOptions.modelList"
+                    disabled>
+              <option value="">Model</option>
+            </select>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <select class="form-control"
+                    id="d"
+                    data-ng-model="VehicleInfoController.vehicleObject.trim"
+                    ng-change="VehicleInfoController.newTrimSelected();
+                               VehicleInfoController.getVehicleEngines();
+                               VehicleInfoController.showMe('e')"
+                    ng-options="trim.name for trim in VehicleInfoController.vehicleListOptions.trimList"
+                    disabled>
+              <option value="">Trim</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6 col-sm-12">
+            <select class="form-control"
+                    id="e"
+                    data-ng-model="VehicleInfoController.vehicleObject.engine"
+                    ng-change="VehicleInfoController.showMe('Vmileage1')"
+                    ng-options="engine for engine in VehicleInfoController.vehicleListOptions.engineList"
+                    disabled>
+              <option value="">Engine</option>
+            </select>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <input type="number"
+                   maxlength="6"
+                   min="1"
+                   max="999999"
+                   class="form-control"
+                   id="Vmileage1"
+                   placeholder="Mileage"
+                   data-ng-model="VehicleInfoController.vehicleObject.miles"
+                   disabled>
+          </div>
+        </div>
+        <div class="row">
+          <!-- start button -->
+            <div class="form-group row text-center">
+              <div class="col-md-12 col-sm-12">
+                <button class="btn btn-primary"
+                        type="submit"
+                        ng-disabled="!VehicleInfoController.cookies"
+                        ng-click="VehicleInfoController.saveToLocalStorage()"
+                        >
+                        {{buttonText}}
+                </button>
+              </div>
+            </div>
+          <!-- start button -->
+        </div>
+
+        <div class="form-group row text-center">
+          <div class="col-md-12 col-sm-12">
+            <hr class="vehicleHR">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-6 col-sm-12">
+            <input type="text"
+                   maxlength="17"
+                   minlength="17"
+                   class="form-control"
+                   id="Vvin"
+                   placeholder="Vehicle VIN"
+                   data-ng-model="VehicleInfoController.vehicleObject.vin"
+                   ng-change="VehicleInfoController.showMe('Vmileage2')">
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <input type="number"
+                   maxlength="6"
+                   min="1"
+                   max="999999"
+                   class="form-control"
+                   id="Vmileage2"
+                   placeholder="Mileage"
+                   data-ng-model="VehicleInfoController.vehicleObject.vinMiles"
+                   disabled>
+          </div>
+        </div>
+
+        <div class="form-group row text-center">
+          <div class="col-md-12 col-sm-12">
+            <button class="btn btn-primary"
+                    type="submit"
+                    ng-click="VehicleInfoController.disableMe('a');
+                              VehicleInfoController.getVin()">
+                    Lookup Vehicle
+            </button>
+          </div>
+        </div>
+
+
+      </form>
+    </section>

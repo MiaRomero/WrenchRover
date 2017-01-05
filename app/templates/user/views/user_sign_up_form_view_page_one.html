@@ -7,14 +7,35 @@
 
 
       <user-sign-up-form-page-one
+
+      ng-if = "!this.previouslyEntered || !this.localStorageOil !this.localStorageDash || !this.localStorageChosen || !this.storedVehicle"
         data-button-text="Sign up!"
         data-xuser="userctrl.newUser"
-            data-action="create"
+
+            data-action="createAlt"
       >
     </user-sign-up-form-page-one>
 
-    <user-sign-in-form>
-      
+
+    <user-sign-up-form-page-one
+
+    ng-if = "!this.previouslyEntered || !this.localStorageOil !this.localStorageDash || !this.localStorageChosen || !this.storedVehicle"
+      data-button-text="Sign up!"
+      data-xuser="userctrl.newUser"
+
+          data-action="createAlt"
+    >
+
+  </user-sign-up-form-page-one>
+
+    <user-sign-in-form
+
+
+        data-button-text="Sign up!"
+        data-xuser="userctrl.newUser"
+
+            data-action="create">
+
     </user-sign-in-form>
 
 

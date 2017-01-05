@@ -3,9 +3,10 @@
 <li data-ng-mouseover="count = 'x'"  data-ng-mouseleave = "count='x'" ng-init="count='x'" id="nails">
 
 <!-- <span class = "checkbox"> -->
-  <input  type="checkbox" name="describValue" data-ng-model="value" data-ng-true-value="'{{secondsibling.name}}'" data-ng-false-value=""   ng-change="checkedSelected(value, secondsibling.name)"  >
+  <input  type="checkbox"  id= "{{secondsibling.name}}"
+  class="chk-hidden" name="describValue" data-ng-model="value" data-ng-true-value="'{{secondsibling.name}}'" data-ng-false-value=""   ng-change="checkedSelected(value, secondsibling.name)"  >
 
+<label for="{{secondsibling.name}}">   {{secondsibling.name}}</label>
 
-{{secondsibling.name}}
 <!-- </span> -->
 </li>

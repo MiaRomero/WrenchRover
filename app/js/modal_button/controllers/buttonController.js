@@ -1,6 +1,8 @@
 
 module.exports = function(app) {
   app.controller('buttonController', ['$uibModal', '$log', '$document', '$http', function($uibModal, $log, $document, $http) {
+    this.theCookie = navigator.cookieEnabled;
+    console.log(this.theCookie);
     var that = this;
 
     this.open = function(parentSelector) {
@@ -14,14 +16,14 @@ module.exports = function(app) {
         appendTo: parentElem
       });
 
-      modalInstance.result.then(function() {
+      modalInstance.result.then(() => {
         console.log('dismissed');
-      }, function() {
+      }, () => {
         $log.info('Modal dismissed at: ' + new Date());
       });
 
       that.exit = function() {
-        modalInstance.result.then(function() {
+        modalInstance.result.then(() => {
           console.log('dismissed');
         });
       };

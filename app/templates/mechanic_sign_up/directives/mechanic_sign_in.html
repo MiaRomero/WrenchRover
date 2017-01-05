@@ -1,0 +1,36 @@
+
+
+    <!-- Page Content -->
+    <div class="container"  >
+
+        <div class="row">
+        <!-- Signin content -->
+			<div class="col-md-12 col-sm-12">
+			  <form class="form-signin" name="signin" data-ng-submit = "save(mech)">
+				<h2 class="form-signin-heading">Sign In</h2>
+
+
+				<label for="inputEmail" class="sr-only">Email Address</label>
+				<input type="email" id="inputEmail" class="form-control formtop" placeholder="Email address" data-ng-model="mech.user_email" required autofocus>
+
+				<label for="inputPassword" class="sr-only">Password</label>
+				<input type="password" id="inputPassword" class="form-control formbot" placeholder="Password" data-ng-model="mech.password" required>
+
+        <!-- <input type="checkbox"  ng-model="x"> I am a Service Center. -->
+
+				<!-- <div class="checkbox center">
+				  <label style="text-align:center;">
+					<input type="checkbox" value="service-center">I am a Service Center
+				  </label>
+				</div> -->
+
+				<button id = "newUser" class="btn btn-lg btn-primary btn-block" type="submit">{{buttonText}}</button>
+			  </form>
+<h2>{{this.message}}</h2>
+			  <!-- <div class="center">
+			  Dont have an account? <a href="#">Click here to create one.</a>
+			  </div> -->
+			</div>
+		</div>
+
+    </div>

@@ -1,5 +1,5 @@
 module.exports = function(app) {
-  app.factory('cmService', [function() {
+  app.factory('cmService', ['$http', function($http) {
     this.url = 'https://wrenchroverapi.herokuapp.com/service_requests';
     this.chosenService = null;
     this.chosenDashlight = null;
@@ -16,6 +16,7 @@ module.exports = function(app) {
     this.textInput = null;
     this.thing = 'andrews';
 
+
     console.log(this.count);
 
     return {
@@ -28,8 +29,7 @@ module.exports = function(app) {
           oilChosen.push(second);
           console.log(that.count);
 
-        }
-        else {
+        } else {
           that.count = 0;
           var index = oilChosen.indexOf(second);
           oilChosen.splice(index);
@@ -47,8 +47,7 @@ module.exports = function(app) {
         //   that.value = false;
           that.nextCount = 7;
           chosen.push(second);
-        }
-        else {
+        } else {
           var index = chosen.indexOf(second);
           chosen.splice(index, 1);
           if (chosen.length === 0) {
@@ -68,8 +67,7 @@ module.exports = function(app) {
         if (value === undefined) {
           window.localStorage.removeItem('describeIssue');
 
-        }
-        else {
+        } else {
           window.localStorage.describeIssue = this.textInput;
         //   window.localStorage.example = 'foo bar';
         }
@@ -82,8 +80,7 @@ module.exports = function(app) {
         if (dashChosen.indexOf(y) == -1) {
           dashChosen.push(y);
           that.dashCount = 9;
-        }
-        else {
+        } else {
 
           var index = dashChosen.indexOf(y);
           dashChosen.splice(index, 1);
@@ -150,6 +147,28 @@ module.exports = function(app) {
       },
       nextPage: function() {
         console.log('next page');
+      },
+      autoX: function() {
+
+
+        this.storedVehicle = JSON.parse(localStorage.getItem('vehicle'));
+        console.log(this.storedVehicle);
+        if (this.storedVehicle) {
+          this.auto = {
+            year: this.storedVehicle.year,
+            make: this.storedVehicle.make.name,
+            model: this.storedVehicle.model.name,
+            trim: this.storedVehicle.trim.name,
+            engine: this.storedVehicle.engine,
+            mileage: this.storedVehicle.mileage
+          };
+        }
+
+        console.log(this.auto);
+        $http.post('https://wrenchroverapi.herokuapp.com/autos', this.auto)
+        .then((res) => {
+          console.log(res);
+        });
       }
 
     };

@@ -1,4 +1,77 @@
-<form data-ng-submit = "save(servicecenter)">
+
+<form  class="form-horizontal"  data-ng-submit = "save(servicecenter)">
+  <fieldset>
+    <!-- <legend>Legend</legend> -->
+
+    <div class="form-group">
+      <label for="inputBusinessName" class="col-lg-2 control-label">Business Name</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputName" placeholder="Business Name" data-ng-model="servicecenter.service_name">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputBusinessAddress" class="col-lg-2 control-label">Business Address</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputBusinessAddress" placeholder="Business Address" data-ng-model="servicecenter.service_address">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputCity" class="col-lg-2 control-label">City</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputCity" placeholder="City" data-ng-model="servicecenter.service_city">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputState" class="col-lg-2 control-label">State</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputSate" placeholder="State" data-ng-model="servicecenter.service_state">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputEmail" placeholder="Email" data-ng-model="servicecenter.user_email">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputPhone" class="col-lg-2 control-label">Phone Number</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputPhone" placeholder="Phone Number" data-ng-model="servicecenter.service_phone">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputZip" class="col-lg-2 control-label">Zip Code</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputZip" placeholder="Phone Number" data-ng-model="servicecenter.service_zip">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+      <div class="col-lg-10">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password" data-ng-model="servicecenter.password">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="submit" class="btn btn-primary" id = "newServiceCenter">{{buttonText}}</button>
+      </div>
+    </div>
+  </fieldset>
+       <ng-transclude></ng-transclude>
+</form>
+
+
+<!-- /////// -->
+
+<!-- <form data-ng-submit = "save(servicecenter)">
 
 <p><label for="business name"> Business Name</label>
   <input type="text" placeholder = "Business Name" name = "businessName" data-ng-model="servicecenter.service_name"></p>
@@ -16,13 +89,16 @@
 <input type="text" placeholder = "Zip Code" name = "businessZip" data-ng-model="servicecenter.service_zip"></p>
 
   <p><label for="email">Email</label>
-    <input type="text" placeholder = "Email" name = "businessEmail" data-ng-model="servicecenter.service_email"></p>
+    <input type="text" placeholder = "Email" name = "businessEmail" data-ng-model="servicecenter.user_email"></p>
 
   <p>  <label for="phone number"> Phone Number</label>
       <input type="text" placeholder = "Phone Number" name = "businessPhone" data-ng-model="servicecenter.service_phone"></p>
-  <!-- ////// -->
 
-     <button type = "submit" id = "newServiceCenter">{{buttonText}}</button>
+      <p>  <label for="password"> password</label>
+          <input type="password" placeholder = "password" name = "password" data-ng-model="servicecenter.password"></p>
+   ////// -->
+
+     <!-- <button type = "submit" id = "newServiceCenter">{{buttonText}}</button>
 
      <ng-transclude></ng-transclude>
-   </form>
+   </form>  -->

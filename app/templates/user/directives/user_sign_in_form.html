@@ -1,35 +1,30 @@
 
-<!-- <form class = "form-horizontal" data-ng-submit = "save(xuser)" > -->
-<form class = "form-horizontal" data-ng-submit = "validate(xuser)" >
-  
-<fieldset>
-  <div class="form-group">
-<p ng-hide="submitted"><label for="user name" class="col-lg-2 control-label"> User Name</label>
 
-  <input type="text" placeholder = "Name" name = "user_name"
-   data-ng-model="xuser.user_name">
-</p>
+    <!-- Page Content -->
+    <div class="container">
 
+        <div class="row">
+        <!-- Signin content -->
+			<div class="col-md-12 col-sm-12">
+			  <form class="form-signin" name="signin" data-ng-submit = "save(login)">
+				<h2 class="form-signin-heading">Sign In</h2>
 
-  <p ng-hide="submitted"><label for="user email" class="col-lg-2 control-label"> Email</label>
-    <input type="text" placeholder = "Email" name = "userEmail"   data-ng-model="xuser.user_email"></p>
+				<label for="inputEmail" class="sr-only">Email Address</label>
+				<input type="email" id="inputEmail" class="form-control formtop" placeholder="Email address" data-ng-model="login.user_email" required autofocus>
 
-
-    <p ng-hide="submitted"><label for="password" class="col-lg-2 control-label"> Password</label>
-      <input type="JSON" placeholder = "password" name = "Password"   data-ng-model="xuser.password"></p>
+				<label for="inputPassword" class="sr-only">Password</label>
+				<input type="password" id="inputPassword" class="form-control formbot" placeholder="Password" data-ng-model="login.password" required>
 
 
+				<button id = "newUser" class="btn btn-lg btn-primary btn-block" type="submit">{{buttonText}}</button>
 
-     <button type = "submit" id = "newUser" ng-class="{'btn btn-primary': !hover, 'hidden': hover}"  ng-click="hover = !hover; submitted = !submitted">{{buttonText}}</button>
-
-
-
-<p ng-hide="!hover">Thank you!</p>
-
-
-</div>
-</fieldset>
+			  </form>
+        <!-- button from modal -->
+                <!-- <button ng-controller="signInController as $ctrl" class="btn btn-primary" type="button" ng-click="$ctrl.ok()">Cancel</button> -->
+                <!-- button from modal ends -->
 
 
-     <ng-transclude></ng-transclude>
-   </form>
+			</div>
+		</div>
+
+    </div>

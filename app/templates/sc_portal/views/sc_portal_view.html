@@ -1,1 +1,33 @@
-<main-portal-directive></main-portal-directive>
+
+<uib-tabset type="pills">
+  <uib-tab heading="New Bids"  ui-sref="sc_portal_view.pending_view"></uib-tab>
+
+
+
+    <uib-tab heading="Past Bids"  ui-sref="sc_portal_view.past_view"> </uib-tab>
+
+    
+  <uib-tab heading="Appointments"  ui-sref="sc_portal_view.active_view"></uib-tab>
+
+</uib-tabset>
+
+  <!-- <ui-view></ui-view> -->
+
+<div class="container">
+      <div class="row">
+
+        <div class="col-md-12 col-sm-12">
+          <main>
+
+    <section id="content1" class = "probContainer" style="overflow:auto;">
+                <div class="row">
+                  <div class="col-md-12 col-sm-12">
+    <ui-view></ui-view>
+  </div>
+</div>
+</section>
+
+</main>
+</div>
+</div>
+</div>

@@ -10,6 +10,7 @@ module.exports = function(app) {
       scope: {
         description: '=',
         buttonText: '@',
+        push: '@',
         action: '@'
       },
       link: function(scope, element, attrs, controller) {

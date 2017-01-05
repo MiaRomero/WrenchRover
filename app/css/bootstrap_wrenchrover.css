@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Ubuntu:400,700");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:4000,700");
 
 html {
   font-family: sans-serif;
@@ -14,11 +14,11 @@ html {
 }
 
 input:hover
-input:active, 
-input:focus, 
+input:active,
+input:focus,
 textarea:active,
 textarea:hover,
-textarea:focus, 
+textarea:focus,
 button:focus,
 button:active,
 button:hover
@@ -4206,7 +4206,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   position: relative;
   min-height: 50px;
   margin-bottom: 20px;
-  border: 1px solid transparent; 
+  border: 1px solid transparent;
   background-color: #fff;
 }
 @media (min-width: 768px) {

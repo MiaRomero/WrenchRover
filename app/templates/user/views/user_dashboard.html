@@ -1,164 +1,105 @@
 
-<div class="col-md-6 col-sm-12"
-     style="background:URL('../images/transparent.png');border:solid 1px black;height:auto;margin-top:25px;">
+<div class="container" data-ng-controller="UserDashboardController as UserDashCtrl" ng-init="UserDashCtrl.getUserInfo()" id="ud_container">
+    <div class="row" >
+    <!-- Main page content -->
 
-<div class="container" style="width:auto;height:auto;">
+    <!-- radio -->
+    <div class="col-md-3 col-sm-3" id = "bid_container">
 
-  <section id="vehicleSelectMenu" data-ng-controller="VehicleInfoController as VehicleInfoController">
-    <form>
-      <div class="form-group row">
-        <div class="col-md-6 col-sm-12">
-          <select class="form-control"
-                  id="a"
-                  data-ng-model="VehicleInfoController.vehicleObject.year"
-                  ng-change="VehicleInfoController.newYearSelected(); VehicleInfoController.getVehicleMakes(); VehicleInfoController.showMe('b')"
-                  ng-options="year for year in VehicleInfoController.vehicleListOptions.yearsList">
-            <option value="">Year</option>
-          </select>
-        </div>
-        <div class="col-md-6 col-sm-12">
-          <select class="form-control"
-                  id="b"
-                  data-ng-model="VehicleInfoController.vehicleObject.make"
-                  ng-change="VehicleInfoController.newMakeSelected(); VehicleInfoController.getVehicleModels(); VehicleInfoController.showMe('c')"
-                  ng-options="make.name for make in VehicleInfoController.vehicleListOptions.makeList"
-                  disabled>
-            <option value="">Make</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="col-md-6 col-sm-12">
-          <select class="form-control"
-                  id="c"
-                  data-ng-model="VehicleInfoController.vehicleObject.model"
-                  ng-change="VehicleInfoController.newModelSelected(); VehicleInfoController.getVehicleTrims(); VehicleInfoController.showMe('d')"
-                  ng-options="model.name for model in VehicleInfoController.vehicleListOptions.modelList"
-                  disabled>
-            <option value="">Model</option>
-          </select>
-        </div>
-        <div class="col-md-6 col-sm-12">
-          <select class="form-control"
-                  id="d"
-                  data-ng-model="VehicleInfoController.vehicleObject.trim"
-                  ng-change="VehicleInfoController.newTrimSelected(); VehicleInfoController.getVehicleEngines(); VehicleInfoController.showMe('e')"
-                  ng-options="trim.name for trim in VehicleInfoController.vehicleListOptions.trimList"
-                  disabled>
-            <option value="">Trim</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="col-md-6 col-sm-12">
-          <select class="form-control"
-                  id="e"
-                  data-ng-model="VehicleInfoController.vehicleObject.engine"
-                  ng-options="engine for engine in VehicleInfoController.vehicleListOptions.engineList"
-                  disabled>
-            <option value="">Engine</option>
-          </select>
-        </div>
-        <div class="col-md-6 col-sm-12">
-          <input type="number"
-                 maxlength="6"
-                 min="1"
-                 max="999999"
-                 class="form-control"
-                 id="Vmileage1"
-                 placeholder="Mileage"
-                 data-ng-model="VehicleInfoController.vehicleObject.mileage">
-        </div>
-      </div>
-      <div class="form-group row text-center">
-        <div class="col-md-12 col-sm-12">
-          <hr class="vehicleHR">
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="col-md-6 col-sm-12">
-          <input type="text"
-                 maxlength="17"
-                 minlength="17"
-                 class="form-control"
-                 id="Vvin"
-                 placeholder="Vehicle VIN"
-                 data-ng-model="VehicleInfoController.vehicleObject.vin">
-        </div>
-        <div class="col-md-6 col-sm-12">
-          <input type="number"
-                 maxlength="6"
-                 min="1"
-                 max="999999"
-                 class="form-control"
-                 id="Vmileage2"
-                 placeholder="Mileage"
-                 data-ng-model="VehicleInfoController.vehicleObject.mileage">
-        </div>
-      </div>
-      <!-- need a lookup button -->
-      <div class="form-group row text-center">
-        <div class="col-md-12 col-sm-12">
-          <button class="btn btn-primary"
-                  type="submit"
-                  ng-click="VehicleInfoController.logVehicle(); VehicleInfoController.getVin()">
-                  Lookup Vehicle
-          </button>
-        </div>
-      </div>
-      <!-- lookup -->
-      <div class="form-group row text-center">
-        <div class="col-md-12 col-sm-12">
-          <button type="submit"
-                  class="btn btn-primary"
-                  style="width:100px;"
-                  ui-sref="common_repairs_view"
-                  ng-click="VehicleInfoController.saveToLocalStorage()">
-                  START
-          </button>
-        </div>
-      </div>
-    </form>
-    </section>
-  </div>
+      <div class="row" ng-repeat="sample in UserDashCtrl.service_quotes_table">
+
+        <div class="radiobutton">
+
+
+{{sample.service_center.service_name}}, Shop Quote: ${{sample.quote_cost}},
+   Shop Notes: {{sample.quote_text}}
+  Availability:
+  <br>
+  <br>
+              <label class="datetimeradio col-md-4 col-sm-4 col-xs-4">
+                  <input type="radio" name="dates" ng-model = "UserDashCtrl.available_date" value="{{sample.available_date_1}}"> <span>{{sample.available_date_1}}</span>
+              </label>
+
+
+              <label class="datetimeradio col-md-4 col-sm-4 col-xs-4">
+                  <input type="radio" name="dates" ng-model = "UserDashCtrl.available_date"  value="{{sample.available_date_2}}"><span>{{sample.available_date_2}}</span>
+              </label>
+
+              <label class="datetimeradio col-md-4 col-sm-4 col-xs-4">
+                  <input type="radio" name="dates" ng-model = "UserDashCtrl.available_date" value="{{sample.available_date_3}}"><span>{{sample.available_date_3}}</span>
+              </label>
+                 </div>
+
+
+                 <button ng-click="UserDashCtrl.confirm(UserDashCtrl.available_date, sample.id, sample)">Go</button>
+                </div>
+                <!-- <button ng-click = "UserDashCtrl.testConfirm()">test it</button> -->
+
+
+  <!-- new radio buttons end -->
+
+              </div>
+
+    <div class="col-md-6 col-sm-6">
+    <div class="row">
+
+        <div  map-lazy-load="https://maps.googleapis.com/maps/api/js?key={{UserDashCtrl.key}}" id = "map_canvas">
+          <ng-map  default-style="true" zoom="11" center="current-location">
+
+          <marker position = "current-location" animation="Animation.BOUNCE"  centered="true"> </marker>
+          <marker id='{{p.id}}' position="{{p.pos}}"
+           ng-repeat="p in UserDashCtrl.positions"
+           on-click="UserDashCtrl.showDetail(p)"
+           icon="{{p.map_icon_pics}}"
+           title="pos: {{p.pos}}"
+           on-mouseover="UserDashCtrl.showDetail(p);"
+           on-mouseout="UserDashCtrl.hideDetail()">
+          </marker>
+          <info-window id="foo-iw">
+           <div ng-non-bindable="">
+           {{UserDashCtrl.shop.id}}<br/>
+           {{UserDashCtrl.shop.pos}}<br/>
+           <br/>
+           </div>
+         </info-window>
+       </ng-map>
+
+</div>
+<hr>
 </div>
 
 
+  </div>
+  <!-- dru's profile -->
+
+ <div class="col-md-3 col-sm-3" style="background-color:#ddd;">
+        <div>
+          <h3>Your Profile</h3>
+          <img src="images/user.png" style="float:left;margin-right:15px;"><br><h4> {{UserDashCtrl.userObject.user_name}}</h4>Member since {{UserDashCtrl.memberSince}} <br>
+          <a href="#" data-toggle="modal" data-target="#mysmallModal">Edit(not functional yet)</a><br clear="all"><br>
+        </div>
+        <div>
+          <h3>Your Vehicle</h3>
+          <div style="float:left;margin-right:15px;" data-ng-repeat="auto in UserDashCtrl.userObject.autos">
+            <!-- {{auto}} -->
+
+            <img src="images/car.png" style="float:left;margin-right:15px;">
+            <b>{{auto.make}} </b><br>
+            {{auto.model}}<br>
+            <a ng-click="UserDashCtrl.addRequest(auto.id)">New Service Requests</a>
+            <a href="#" data-toggle="modal" data-target="#mysmallModal">Delete(not functional yet)</a><br><br>
+          </div>
+        </div>
+        <div style="margin-top:50px;"    ng-controller="AddVehicleButtonController as $ctrl">
+          <button type="submit" ng-click= "$ctrl.open()" class="btn btn-primary" style="width:auto;" >ADD NEW VEHICLE</button>
+          <br clear="all"><br>
+        </div>
+      </div>
 
 
-<section data-ng-controller="UserDashboardController as UserDashCtrl">
-    <button class="btn btn-default"
-            type="submit"
-            ng-click="UserDashCtrl.getUserInfo(); UserDashCtrl.logUser()">
-            test get user
-    </button>
+  <!-- dru's profile end -->
+  <div class="row" ng-repeat="sample in UserDashCtrl.service_requestObj">
+    {{sample}}
 
-    <div id="profile">
-
-        <p>Your Profile</p>
-        <br>
-        <img id ="profilePicture">
-        <br>
-        <span> {{UserDashCtrl.userObject.userName}} </span>
-        <br>
-        <span class="title">Member Since: </span>
-        <br>
-        <span>{{UserDashCtrl.userObject.memberSince}}</span>
-        <br>
-        <span class="title">Vehicles: </span>
-        <br>
-        <span data-ng-repeat="auto in UserDashCtrl.userObject.autos">
-
-          <span> {{auto.make}} </span>
-          <span> {{auto.model}} </span>
-          <br>
-          <span class="title"> Trim: </span>
-          <span> {{auto.trim}} </span>
-          <br>
-          <span class="title">Engine: </span>
-          <span> {{auto.engine}} </span>
-          <br>
-        </span>
-
-    </div>
-</section>
+</div>
+</div>

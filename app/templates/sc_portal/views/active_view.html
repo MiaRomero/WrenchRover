@@ -1,0 +1,10 @@
+<p ng-init="portal.getPastBids()">active view</p>
+
+
+
+
+<li ng-repeat="sample in portal.acceptedbids">
+<br>
+Created At: {{sample.created_at}}.   Mechanic's Notes: {{sample.quote_text}} Available slots: 1.{{sample.available_date_1}} 2.{{sample.available_date_2}} 3.{{sample.available_date_3}} Quote Cost: {{sample.quote_cost}}
+Appointment Date/Time: {{sample.accepted}}
+</li>

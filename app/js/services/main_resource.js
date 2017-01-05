@@ -15,7 +15,7 @@ module.exports = function(app) {
           for (var i = 0; i < res.data.length; i++) {
             this.data.push(res.data[i]);
           }
-          console.log(this.data);
+        //   console.log(this.data);
         }, handleError(this.errors, this.options.errMessages.getAll || 'could not fetch resource'));
     };
 

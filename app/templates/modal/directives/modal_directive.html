@@ -1,5 +1,6 @@
 
-<div class="panel panel-primary">
+<!-- <div class="panel panel-primary"> -->
+<div class="panel">
 
   <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">X</button>
   <div class="panel-heading">
@@ -16,17 +17,13 @@
     </ul>
 
 <div ng-controller="userSignUpController as userctrl">
-<user-sign-up-form-page-one
 
-data-button-text="Join today!"
-data-action="create"
-data-xuser="userctrl.newUser"
->
-</user-sign-up-form-page-one>
+          <user-sign-up-form-page-one
+          data-button-text="Join today!"
+          data-action="create"
+          data-xuser="userctrl.newUser">
+          </user-sign-up-form-page-one>
 
-<!-- <user-sign-in-form>
-
-</user-sign-in-form> -->
 
 <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">Close</button>
 </div>

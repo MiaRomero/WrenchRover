@@ -1,0 +1,33 @@
+<div class="panel panel-primary">
+
+  <button class="btn btn-primary"
+          type="button"
+          ng-click="$ctrl.ok()">
+          X
+  </button>
+
+  <div class="panel-heading">
+    <h3 class="panel-title">Add a new Vehicle</h3>
+  </div>
+
+  <div class="panel panel-success">
+    <div class="panel-body">
+
+      <div ng-controller="VehicleInfoController as VehicleInfoController">
+        <my-vehicle-select
+
+              data-button-text="Add"
+
+        ></my-vehicle-select>
+
+
+
+        <button class="btn btn-primary"
+                type="button"
+                ng-click="$ctrl.ok()">
+                Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

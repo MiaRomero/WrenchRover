@@ -12,10 +12,10 @@
 </label> -->
 
 <!-- //// -->
-<input type="checkbox" name="describValue" data-ng-model="value" data-ng-true-value="'{{oilsecond.name}}'" data-ng-false-value=""   ng-change="oilSelected(value, oilsecond.name)" ng-disabled="describe.service.count == 5 && !value" >
+<input type="checkbox"    class="chk-hidden" name="describValue" id="{{oilsecond.name}}" data-ng-model="value" data-ng-true-value="'{{oilsecond.name}}'" data-ng-false-value=""   ng-change="oilSelected(value, oilsecond.name)" ng-disabled="describe.service.count == 5 && !value" >
 
-{{oilsecond.name}}
 
+<label for="{{oilsecond.name}}">{{oilsecond.name}}</label>
 
 
 

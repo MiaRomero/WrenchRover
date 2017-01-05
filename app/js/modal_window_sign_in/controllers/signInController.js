@@ -7,7 +7,7 @@ module.exports = function(app) {
     console.log($uibModalInstance);
 
     $ctrl.ok = function() {
-      console.log('okay, then');
+      console.log('okay, then close');
       $uibModalInstance.close();
     };
 

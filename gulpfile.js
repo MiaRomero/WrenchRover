@@ -1,9 +1,11 @@
 const gulp = require('gulp');
-const eslint = require('gulp-eslint');
-const mocha = require('gulp-mocha');
-const protractor = require('gulp-protractor').protractor;
+// const eslint = require('gulp-eslint');
+// const mocha = require('gulp-mocha');
+// const protractor = require('gulp-protractor').protractor;
 const webpack = require('webpack-stream');
-const KarmaServer = require('karma').Server;
+const gulpNgConfig = require('gulp-ng-config');
+var b2v = require('buffer-to-vinyl');
+// const KarmaServer = require('karma').Server;
 
 
 var files = {
@@ -12,6 +14,27 @@ var files = {
   serverTest: ['test/**/*test.js']
 };
 
+gulp.task('make-config', () => {
+  var json = JSON.stringify({
+      string: process.env.GMAP
+  });
+      return b2v.stream(new Buffer(json), 'config.js')
+    .pipe(gulpNgConfig('wrApp.config'))
+    .pipe(gulp.dest('app'));
+  });
+
+gulp.task('configEnv', () => {
+
+  gulp.src('config.json')
+  .pipe(gulpNgConfig('wrApp.config'))
+  .pipe(gulp.dest('app'));
+});
+
+gulp.task('config', () => {
+  gulp.src('config.json')
+      .pipe(gulpNgConfig('uiApp', configureSetup))
+      .pipe(gulp.dest('app'));
+});
 // lint tasks
 gulp.task('lint:server', () => {
   return gulp.src(files.server)
@@ -28,7 +51,8 @@ gulp.task('lint:app', () => {
 gulp.task('lint', ['lint:server', 'lint:app']);
 
 // build dev tasks
-gulp.task('webpack:dev', ['lint'], () => {
+gulp.task('webpack:dev', () => {
+
   return gulp.src('app/js/entry.js')
   .pipe(webpack({
     devtool: 'source-map',
@@ -83,4 +107,4 @@ gulp.task('karma', ['webpack:test'], (done) => {
 gulp.task('test', ['mocha', 'karma']);
 
 
-gulp.task('default', ['build']);
+gulp.task('default', ['make-config', 'build']);

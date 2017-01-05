@@ -11,15 +11,19 @@ module.exports = function(app) {
     this.service = cmService;
     this.selection = null;
 
+
+    if (localStorage.getItem('token') != undefined || null) {
+      this.token = localStorage.getItem('token');
+    }
+
+
     this.previouslyEntered = localStorage.getItem('describeIssue');
     this.localStorageOil = localStorage.getItem('oilChosen');
     this.localStorageDash = localStorage.getItem('dashChosen');
     this.localStorageChosen = localStorage.getItem('chosen');
 
-    // this.storedVehicle = localStorage.getItem('vehicle');
     this.storedVehicle = JSON.parse(localStorage.getItem('vehicle'));
 
-    // console.log(this.storedVehicle);
 
     var that = this;
     that.value = this.value;
@@ -35,50 +39,40 @@ module.exports = function(app) {
       dash: '../../../images/common_icons/dash.png',
       describe: '../../../images/common_icons/describe.png' };
     this.mainLights.push(this.commonLight);
-    // console.log(this.mainLights);
 
-    this.dash = {
-      one: '../../../images/dashlights/001.png',
-      two: '../../../images/dashlights/002.png',
-      three: '../../../images/dashlights/003.png',
-      four: '../../../images/dashlights/004.png',
-      five: '../../../images/dashlights/005.png',
-      ten: '../../../images/dashlights/010.png',
-      eleven: '../../../images/dashlights/011.png',
-      fifteen: '../../../images/dashlights/015.png',
-      sixteen: '../../../images/dashlights/016.png',
-      seventeen: '../../../images/dashlights/017.png'
-    };
-    this.dashArr = ['../../../images/dashlights/001.png', '../../../images/dashlights/002.png', '../../../images/dashlights/003.png', '../../../images/dashlights/004.png', '../../../images/dashlights/005.png', '../../../images/dashlights/010.png', '../../../images/dashlights/011.png', '../../../images/dashlights/015.png', '../../../images/dashlights/016.png', '../../../images/dashlights/017.png'];
 
-    this.dashArr2.push(this.dash);
     this.sbArr = [];
 
 
     this.sb = {
       children: [
         { imageSrc: '../../../images/dashlights/001.png',
-         name: 'Oil Light' },
-         { imageSrc: '../../../images/dashlights/002.png',
-          name: 'Battery Light' },
-          { imageSrc: '../../../images/dashlights/003.png',
-           name: 'encircled exclamation point' },
-           { imageSrc: '../../../images/dashlights/004.png',
-            name: 'Airbag Light' },
-            { imageSrc: '../../../images/dashlights/005.png',
-             name: 'Temperature Light' },
-             { imageSrc: '../../../images/dashlights/010.png',
-              name: 'ABS warning' },
-              { imageSrc: '../../../images/dashlights/011.png',
-               name: 'Check Engine Light' },
-               { imageSrc: '../../../images/dashlights/015.png',
-                name: 'coils' },
-                { imageSrc: '../../../images/dashlights/016.png',
-                 name: 'triangle exclamation mark' },
-                 { imageSrc: '../../../images/dashlights/017.png',
-                  name: 'Tire Pressures' }
-
-
+          imageSrc2: '../../../images/dashlights/002.png',
+          imageSrc3: '../../../images/dashlights/003.png',
+          imageSrc4: '../../../images/dashlights/004.png',
+          name: 'Oil Light',
+          name2: 'Battery Light',
+          name3: 'Encircled Exclamation Point',
+          name4: 'Airbag Light'
+        },
+        { imageSrc: '../../../images/dashlights/005.png',
+          imageSrc2: '../../../images/dashlights/010.png',
+          imageSrc3: '../../../images/dashlights/011.png',
+          imageSrc4: '../../../images/dashlights/012.png',
+          name: 'Temperature Light',
+          name2: 'ABS Light',
+          name3: 'Check Engine Light',
+          name4: 'Sprocket Light'
+        },
+        { imageSrc: '../../../images/dashlights/015.png',
+          imageSrc2: '../../../images/dashlights/016.png',
+          imageSrc3: '../../../images/dashlights/017.png',
+          imageSrc4: '../../../images/dashlights/018.png',
+          name: 'Coily Light',
+          name2: 'Hazard Light',
+          name3: 'Tire Pressure Light',
+          name4: 'Lightbulb Light'
+        }
       ]
     };
 
@@ -95,8 +89,7 @@ module.exports = function(app) {
       for (var i = 0; i < res.data[0].children.length; i++) {
         if (res.data[0].children[i].name != 'Oil Change') {
           this.childrens.push(res.data[0].children[i]);
-        }
-        else {
+        } else {
           this.oils.push(res.data[0].children[i]);
         }
       }
@@ -163,6 +156,10 @@ module.exports = function(app) {
       cmService.removeChosenOil(x);
     };
 
+    this.autoX = function() {
+      console.log('describe autox');
+      cmService.autoX();
+    };
 
   }]);
 };

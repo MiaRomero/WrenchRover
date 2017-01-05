@@ -59,10 +59,13 @@ module.exports = exports = function(app) {
     Resource.prototype.getVin = function() {
       return $http.get(this.url + 'vin/vin/vin/' + this.vehicle.vin)
       .then( (res) => {
+        this.vehicle.make = { name: '' };
+        this.vehicle.model = { name: '' };
+        this.vehicle.trim = { name: '' };
         this.vehicle.year = res.data.year;
-        this.vehicle.make = res.data.make;
-        this.vehicle.model = res.data.model;
-        this.vehicle.trim = res.data.trim;
+        this.vehicle.make.name = res.data.make;
+        this.vehicle.model.name = res.data.model;
+        this.vehicle.trim.name = res.data.trim;
         if (res.data.engine) this.vehicle.engine = res.data.engine;
         console.log(this.vehicle);
       });
